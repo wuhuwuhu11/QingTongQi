@@ -1,0 +1,18 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: register,gateway,redis
+  cloud:
+    nacos:
+      config:
+        server-addr: 124.222.157.65:8848
+        prefix: zxk
+        file-extension: yml
+white:
+  ignore:
+    whiteUrls:
+      - /umsUser/login
+

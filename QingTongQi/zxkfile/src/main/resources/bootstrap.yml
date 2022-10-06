@@ -1,0 +1,13 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: zxkfile
+  profiles:
+    active: register,datasource,mybatis,upload,minio
+  cloud:
+    nacos:
+      config:
+        server-addr: 124.222.157.65:8848
+        prefix: zxk
+        file-extension: yml

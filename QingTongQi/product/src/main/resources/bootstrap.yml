@@ -1,0 +1,13 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: product
+  profiles:
+    active: datasource,register,mybatis,feign
+  cloud:
+    nacos:
+      config:
+        server-addr: 124.222.157.65:8848
+        prefix: zxk
+        file-extension: yml

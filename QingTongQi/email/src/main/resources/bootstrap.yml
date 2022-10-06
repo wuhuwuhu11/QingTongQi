@@ -1,0 +1,13 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: email
+  profiles:
+    active: register,email,amqp
+  cloud:
+    nacos:
+      config:
+        server-addr: 124.222.157.65:8848
+        prefix: zxk
+        file-extension: yml

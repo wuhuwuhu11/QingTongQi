@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zxk.mapper.UmsResourceMapper">
+    <select id="getByUserId" resultType="zxk.entity.UmsResource" parameterType="java.lang.Long">
+        select distinct
+            d.id,
+            d.name,
+            d.type,
+            d.level,
+            d.parent_id as parentId,
+            d.front_url as frontUrl,
+            d.back_url as backUrl
+        from
+            ums_role_user as a
+        inner join
+            ums_role as b
+        on
+            a.role_id = b.id
+        inner join
+            ums_role_resource as c
+        on
+            c.role_id = a.role_id
+        inner join
+            ums_resource as d
+        on
+            d.id=c.resource_id
+        where
+            a.user_id = #{1}
+        and
+            b.active = 1
+    </select>
+</mapper>
